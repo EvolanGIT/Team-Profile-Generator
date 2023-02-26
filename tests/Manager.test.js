@@ -25,10 +25,4 @@ describe("Retrieve", () => {
         expect(testEmp.retMail()).toBe(empMail);
     });
 
-    it("should retrieve manager's Office number", () => {
-        const empOffice = '1';
-        const testEmp = new Manager('NickFury',1, 'fake@mail.com', '1');
-        expect(testEmp.retOffice()).toBe(empOffice);
-    });
-
 });

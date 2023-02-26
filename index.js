@@ -68,7 +68,7 @@ function managerPrompts() {
     },
     ])
 .then((anwsers) => {
-        let managerInfo = new Manager(anwsers.managerName, anwsers.managerId, anwsers.managerMail, anwsers.managerOffice)
+        let managerInfo = new Manager(anwsers.managerName, anwsers.managerId, anwsers.managerMail, anwsers.custom)
         profileInfo.push(managerInfo)
         startTeam();
     }
@@ -94,12 +94,12 @@ function engPrompt() {
     },
     {
     type: 'input',
-    name: 'engGit',
+    name: 'custom',
     message: "What is the Engineer's Github name?"
     },
     ])
 .then((anwsers) => {
-        let engInfo = new Engineer(anwsers.engName, anwsers.engId, anwsers.engMail, anwsers.engGit)
+        let engInfo = new Engineer(anwsers.engName, anwsers.engId, anwsers.engMail, anwsers.custom)
         profileInfo.push(engInfo)
         startTeam();
     }
@@ -126,12 +126,12 @@ function intPrompt() {
     },
     {
     type: 'input',
-    name: 'intSchool',
+    name: 'custom',
     message: "What School did the Intern attended to?"
     },
     ])
 .then((anwsers) => {
-        let IntInfo = new Intern(anwsers.intName, anwsers.intId, anwsers.intMail, anwsers.intSchool)
+        let IntInfo = new Intern(anwsers.intName, anwsers.intId, anwsers.intMail, anwsers.custom)
         profileInfo.push(IntInfo)
         startTeam();
     }
@@ -139,7 +139,7 @@ function intPrompt() {
     
 // once all employees' information has been collected, the information is sent to the functions that generate
 // the employee cards and the html respectively.
-    function teamBuild(answers){
+    function teamBuild(){
         let html = generateHtml(profileInfo);
     fs.writeFile('./dist/team.html', html, (err) =>
     err ? console.log(err) : console.log('Profiles have been made for your team!')

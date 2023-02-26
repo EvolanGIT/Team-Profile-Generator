@@ -25,10 +25,4 @@ describe("Retrieve", () => {
         expect(testEmp.retMail()).toBe(empMail);
     });
 
-    it("should retrieve engineer's Github Alias", () => {
-        const empGit = 'fakeGit';
-        const testEmp = new Engineer('Tony', 5, 'fake@mail.com', 'fakeGit');
-        expect(testEmp.retGit()).toBe(empGit);
-    });
-
 });

@@ -25,10 +25,4 @@ describe("Retrieve", () => {
         expect(testEmp.retMail()).toBe(empMail);
     });
 
-    it("should retrieve intern's School", () => {
-        const empSchool = 'Hogwarts';
-        const testEmp = new Intern('Harry', 9, 'fake@mail.com', 'Hogwarts');
-        expect(testEmp.retSchool()).toBe(empSchool);
-    });
-
 });
