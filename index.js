@@ -6,6 +6,7 @@ const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const template = require('./src/template.js')
+const {generateHtml} = template
 
 // this function just collects the Business name for the HTML.
 inquirer.prompt([
@@ -36,7 +37,7 @@ function startTeam () {
     } else if (choice.members === 'Intern') {
         intPrompt();
     } else {
-        createHTML();
+        teamBuild();
         return
     }
         })
@@ -62,7 +63,7 @@ function managerPrompts() {
     },
     {
     type: 'input',
-    name: 'managerOffice',
+    name: 'custom',
     message: "What is the Manager's office number?"
     },
     ])
@@ -136,5 +137,12 @@ function intPrompt() {
     }
     )};
     
-
+// once all employees' information has been collected, the information is sent to the functions that generate
+// the employee cards and the html respectively.
+    function teamBuild(answers){
+        let html = generateHtml(profileInfo);
+    fs.writeFile('./dist/team.html', html, (err) =>
+    err ? console.log(err) : console.log('Profiles have been made for your team!')
+    )
+};
 
