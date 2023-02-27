@@ -6,20 +6,25 @@ function createCard(profileInfo) {
         spawnCard += `
         <div class="col-xl-3 col-sm-6 mb-5">
             <div class="bg-white rounded shadow-sm py-4 px-4 photos">
-            <img src="./dist/images/managerImg.jpg" alt="cards depicting each employee's role" width="100" class="mb-3  shadow-sm">
-                <h5 class="mb-0">${profileInfo[i].name}</h5><span class="small text-uppercase text-muted">${profileInfo[i].role}</span>
+            <img src="${profileInfo[i].retImg()}" alt="cards depicting each employee's role" width="100" class="mb-3  shadow-sm">
+                <h5 class="mb-0">${profileInfo[i].name}</h5><span class="small text-uppercase text-muted">${profileInfo[i].retRole()}</span>
             <hr class="border border-primary border-3 opacity-75">
                 <p class="mt-3 ">${profileInfo[i].id}</p>
             <hr>
                 <p class="mt-3">${profileInfo[i].email}</p>
             <hr>
-                <p class="mt-3">${profileInfo[i].custom}</p>
+                <p class="mt-3">${profileInfo[i].retCustom()}${profileInfo[i].custom}</p>
             </div>
         </div> 
         `
     }
     return spawnCard;
 };
+
+function businessId (userInput){
+    let businessName = "";
+    businessName += `<h1 class="lh-lg fw-bold fst-italic">${userInput}</h1>`
+}
 
 
 function generateHtml(profileInfo) {
@@ -41,7 +46,7 @@ function generateHtml(profileInfo) {
                         <img class="banner" src="/dist/images/teamGen.jpg" width="150px">
                     </a>
                     <div class="branding text-center text-white">
-                    <h1 class="lh-lg fw-bold fst-italic">Business Name goes here</h1>
+                    ${businessId(userInput)}
                     <h3 class="fst-italic text-decoration-underline">Meet the team</h3>
                     </div>
                 </div>
@@ -50,7 +55,7 @@ function generateHtml(profileInfo) {
         <section class="container">
             <div class="container-fluid">
                 <div class="row text-center">
-                // ${createCard(profileInfo)}
+                ${createCard(profileInfo)}
                 </div>
                 </div>
                     
@@ -62,3 +67,6 @@ function generateHtml(profileInfo) {
 }
 
 module.exports = { createCard, generateHtml };
+
+{/* <h1 class="lh-lg fw-bold fst-italic">Business Name goes here</h1> */}
+

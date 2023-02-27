@@ -53,7 +53,7 @@ function managerPrompts() {
     },
     {
     type: 'input',
-    name: 'managerID',
+    name: 'managerId',
     message: "What is the Manager's ID?"
     },
     {
@@ -84,7 +84,7 @@ function engPrompt() {
     },
     {
     type: 'input',
-    name: 'engID',
+    name: 'engId',
     message: "What is the Engineer's ID?"
     },
     {
@@ -116,7 +116,7 @@ function intPrompt() {
     },
     {
     type: 'input',
-    name: 'intID',
+    name: 'intId',
     message: "What is the Intern's ID?"
     },
     {
