@@ -27,7 +27,7 @@
 
 ## Access
 
-## Link to the Walkthrough video [**HERE**](https://www.youtube.com/watch?v=TDbqjAb7Y8w)
+## Link to the Walkthrough video [**HERE**](https://youtu.be/jq6_lcpn12k)
 
 ## Visuals
 
