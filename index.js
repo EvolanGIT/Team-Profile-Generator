@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-let userInput = [];
+let userInput = '';
 let profileInfo = [];
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
@@ -16,7 +16,7 @@ inquirer.prompt([
     }
 ])
 .then((answer) => {
-    userInput.push(answer.businessID);
+    userInput = answer.businessID;
         startTeam();
 });
 
@@ -140,7 +140,7 @@ function intPrompt() {
 // once all employees' information has been collected, the information is sent to the functions that generate
 // the employee cards and the html respectively.
     function teamBuild(){
-        let html = generateHtml(profileInfo);
+        let html = generateHtml(profileInfo, userInput);
     fs.writeFile('./dist/team.html', html, (err) =>
     err ? console.log(err) : console.log('Profiles have been made for your team!')
     )

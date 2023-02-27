@@ -11,9 +11,9 @@ function createCard(profileInfo) {
             <hr class="border border-primary border-3 opacity-75">
                 <p class="mt-3 ">${profileInfo[i].id}</p>
             <hr>
-                <p class="mt-3">${profileInfo[i].email}</p>
+                <a href="mailto:${profileInfo[i].email}" class="mt-3">${profileInfo[i].email}</a>
             <hr>
-                <p class="mt-3">${profileInfo[i].retCustom()}${profileInfo[i].custom}</p>
+                <p class="mt-3">${profileInfo[i].retCustom()}</p><a href="https://github.com/${profileInfo[i].custom}">${profileInfo[i].custom}</a>
             </div>
         </div> 
         `
@@ -21,13 +21,8 @@ function createCard(profileInfo) {
     return spawnCard;
 };
 
-function businessId (userInput){
-    let businessName = "";
-    businessName += `<h1 class="lh-lg fw-bold fst-italic">${userInput}</h1>`
-}
 
-
-function generateHtml(profileInfo) {
+function generateHtml(profileInfo, userInput) {
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -46,7 +41,7 @@ function generateHtml(profileInfo) {
                         <img class="banner" src="/dist/images/teamGen.jpg" width="150px">
                     </a>
                     <div class="branding text-center text-white">
-                    ${businessId(userInput)}
+                    <h1 class="lh-lg fw-bold fst-italic">${userInput}</h1>
                     <h3 class="fst-italic text-decoration-underline">Meet the team</h3>
                     </div>
                 </div>
@@ -68,5 +63,4 @@ function generateHtml(profileInfo) {
 
 module.exports = { createCard, generateHtml };
 
-{/* <h1 class="lh-lg fw-bold fst-italic">Business Name goes here</h1> */}
 
